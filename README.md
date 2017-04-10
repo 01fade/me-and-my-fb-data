@@ -1,4 +1,4 @@
-# me-and-my-fb-data
+# Me And My Facebook Data
 
 ## Prepare
 - http server (```python -m SimpleHTTPServer```) in root Facebook data folder (e.g. "facebook-[yourname]")
@@ -9,4 +9,5 @@
 
 ## Dev Setup
 - install packages ```npm install```
+- make changes in src folder
 - make a build ```npm run build```
