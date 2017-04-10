@@ -13,6 +13,7 @@ var section, username = "",
 
 function makeReqs(arr) {
     var count = 0;
+    $("#title p").append(" [" + arr.length + "]");
     for (i = 0; i < arr.length; i++) {
         var url = 'http://freegeoip.net/json/' + arr[i].ip;
         requests.push($.getJSON(url).done(function(location, textStatus, jqXHR) {
@@ -39,16 +40,16 @@ function makeReqs(arr) {
 }
 
 function extractIpDate(elems) {
-    elems.filter(function(){
+    elems.filter(function() {
         return $(this).html().length > 0;
     }).each(function(i) {
         var listItem = $(this).html(),
             name = listItem.split("<p")[0],
-            separateIP = section == "Administrative Records" ? "Cookie" : "Browser";
-            ip = listItem.match("IP Address: (.*)Cookie")[1].replace("<br>", ""),
             createdTimeAll = listItem.indexOf('Updated') > -1 ? listItem.match("Updated: (.*)IP Address")[1] : listItem.match("Created: (.*)IP Address")[1],
             createdTime = createdTimeAll.substring(createdTimeAll.indexOf(', ') + 1).replace(" at ", " ").replace("<br>", ""),
-            createTimestamp = moment(createdTime, "MMMM D, YYYY h:ma").unix();
+            createTimestamp = moment(createdTime, "MMMM D, YYYY h:ma").unix(),
+            separateIP = section == "Administrative Records" ? "Cookie" : "Browser",
+            ip = listItem.match("IP Address: (.*)" + separateIP)[1].replace("<br>", "");
         activeSessions.push({
             name: name,
             ip: ip,
@@ -78,9 +79,9 @@ function parseActiveSessions(data, section) {
     username = html.find("h1").first().text();
     $("#title p").html(username + " > Security > <span>" + section + "</span>");
     html.find("h2").each(function(i) {
-        var el = $(this);
+        var el = $(this),
+            elems = el.next("ul").find("li");
         if (el.text() == section) {
-            var elems = el.next("ul").find("li");
             if (section == "IP Addresses") {
                 extractIp(elems);
             } else {
@@ -128,8 +129,9 @@ function addMarkers() {
 
         popup += m.region == "" ? "" : ", " + m.region;
         popup += m.city == "" ? "" : ", " + m.city;
-        popup += '<br>IP: [hidden]';
-        popup += m.name == "undefined" || m.name == "Unknown" ? "" : "<br>Machine: " + m.name;
+        // popup += '<br>IP: [hidden]'; // PRIVACY
+        popup += '<br>IP: ' + m.ip;
+        popup += m.name == "undefined" ? "" : "<br>Label: " + m.name;
         popup += m.timestamp == "undefined" ? "" : "<br>Time: " + m.timestamp;
 
         myMap.flyTo([m.lat, m.long], 4, {
@@ -174,24 +176,24 @@ $(document).ready(function() {
     console.log(">>> Me And My Facebook Data <<<");
     startMap();
     var urlParams = new URLSearchParams(window.location.search);
-    section = urlParams.get('section');
     $.get('../../html/security.htm').done(function(data) { // from html file go 2 levels up
-        switch (section) {
+        switch (urlParams.get('section')) {
             case "1":
-                parseActiveSessions(data, "Active Sessions");
+                section = "Active Sessions"
                 break;
             case "2":
-                parseActiveSessions(data, "Recognized Machines");
+                section = "Recognized Machines"
                 break;
             case "3":
-                parseActiveSessions(data, "IP Addresses");
+                section = "IP Addresses"
                 break;
             case "4":
-                parseActiveSessions(data, "Administrative Records");
+                section = "Administrative Records"
                 break;
             default:
-                parseActiveSessions(data, "Active Sessions");
+                section = "Active Sessions"
         }
+        parseActiveSessions(data, section);
     });
 
 });

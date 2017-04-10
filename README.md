@@ -5,7 +5,7 @@
 - move this code in root directory, so it's in the same level as the html, photos and videos folders
 
 ## Run
-- open index.html from build folder
+- open index.html or map.html from build folder
 
 ## Dev Setup
 - install packages ```npm install```
