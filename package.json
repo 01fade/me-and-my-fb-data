@@ -1,0 +1,32 @@
+{
+  "name": "me-and-my-fb-data",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webpack.config.js",
+  "dependencies": {
+    "clean-webpack-plugin": "^0.1.16",
+    "copy-webpack-plugin": "^4.0.1",
+    "jquery": "^3.2.1",
+    "leaflet": "^1.0.3",
+    "lodash": "^4.17.4",
+    "moment": "^2.18.1",
+    "webpack": "^2.3.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "buildw": "webpack -w",
+    "buildprod": "NODE_ENV=prod webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/228miles/me-and-my-fb-data.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/228miles/me-and-my-fb-data/issues"
+  },
+  "homepage": "https://github.com/228miles/me-and-my-fb-data#readme"
+}

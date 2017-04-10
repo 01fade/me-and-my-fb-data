@@ -1,0 +1,33 @@
+body {
+    font-family: monospace;
+}
+
+#map {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #000;
+    z-index: 1000;
+}
+
+#title {
+    position: absolute;
+    z-index: 2000;
+    left: 0px;
+    bottom: 0px;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 20px;
+}
+
+#title p {
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+    color: #FFF;
+}
+
+#title p span {
+    color: #5C90FF;
+}
