@@ -1,32 +1,18 @@
 {
-  "name": "me-and-my-fb-data",
-  "version": "1.0.0",
-  "description": "",
-  "main": "webpack.config.js",
+  "name": "myfbdata",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "clean-webpack-plugin": "^0.1.16",
-    "copy-webpack-plugin": "^4.0.1",
-    "jquery": "^3.2.1",
-    "leaflet": "^1.0.3",
-    "lodash": "^4.17.4",
-    "moment": "^2.18.1",
-    "webpack": "^2.3.3"
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "react-scripts": "0.9.5"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack",
-    "buildw": "webpack -w",
-    "buildprod": "NODE_ENV=prod webpack"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/228miles/me-and-my-fb-data.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/228miles/me-and-my-fb-data/issues"
-  },
-  "homepage": "https://github.com/228miles/me-and-my-fb-data#readme"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
 }
