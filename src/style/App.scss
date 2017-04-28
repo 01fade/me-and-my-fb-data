@@ -1,0 +1,334 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto+Mono:400);
+
+$fb: #5C90FF;
+$fba: rgba(92, 144, 255, 0.3);
+$blue: #4272FF;
+$fbyellow: #ffc300;
+$fbred: #fa3c4c;
+$fbteal: #44bec7;
+$grey: #BBB;
+$dgrey: #999;
+$fsize: 15px;
+$fsizeBigger: 16px;
+// BASICS
+//
+//
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    line-height: 1.5em;
+    font-size: $fsize;
+    letter-spacing: 0.08em;
+    background-color: #000;
+    color: #FFF;
+}
+
+body, button {
+    font-family: "Roboto Mono", monospace;
+    font-weight: 400;
+}
+
+a,
+p,
+li {
+    text-transform: lowercase;
+}
+
+input,
+select,
+select,
+textarea {
+    font-size: $fsize;
+}
+
+input:focus,
+button:focus {
+    outline: none;
+}
+
+p {
+    margin: 0 0 10px;
+    max-width: 70vw;
+}
+
+i {
+    text-decoration: none;
+    border-bottom: 2px solid $fb;
+}
+
+a {
+    color: #FFF;
+    text-decoration: none;
+    padding: 0 1px;
+}
+
+p a {
+    background-color: $blue;
+    line-height: 1.1em;
+}
+
+p a:hover {
+    color: $blue;
+    background-color: $blue;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+.warning {
+    color: $fbred;
+}
+
+button,
+.input-container {
+    padding: 10px 20px;
+    margin: 5px;
+    line-height: normal;
+    min-height: 42px;
+    font-size: $fsize;
+    position: relative;
+    background-color: transparent;
+    display: inline-block;
+    &.big-btn {
+        padding: 15px 40px;
+    }
+    &.btn-active {
+        border: 2px solid $fb;
+        color: #FFF;
+        cursor: pointer;
+    }
+    &.btn-action {
+        border: 2px solid $fbyellow;
+        color: #FFF;
+        cursor: pointer;
+    }
+    &.btn-inactive {
+        border: 2px solid $dgrey;
+        color: $dgrey;
+    }
+}
+
+// content
+//
+//
+.content {
+    padding: 20px;
+}
+
+#restart-btn {
+    font-size: 0.8em;
+    position: fixed;
+    padding: 5px 10px;
+    min-height: 20px;
+    right: 5px;
+    top: 5px;
+    z-index: 2000;
+}
+
+.Nav {
+    height: 50px;
+}
+
+.nav-list {
+    z-index: 9000;
+    position: relative;
+    float: left;
+    display: inline;
+    padding: 0;
+    margin: 10px 20px;
+    li {
+        font-size: $fsize;
+        float: left;
+        margin: 0 1em;
+        display: inline-block;
+        position: relative;
+        a,
+        a:active {
+            padding: 0px 0px;
+            position: relative;
+            display: inline-block;
+        }
+        a:after {
+            background-color: none;
+        }
+        .activeNav:after,
+        a:hover:after,
+        a:after {
+            width: 0.8em;
+            height: 0.8em;
+            top: 0.3em;
+            left: -1.1em;
+            content: '';
+            border: 2px solid $fb;
+            transition: all 0.3s ease 0s;
+            position: absolute;
+        }
+        .activeNav:after,
+        a:hover:after {
+            background-color: $fb;
+        }
+    }
+}
+
+#progressbar {
+    height: 4px;
+    width: 0%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.loader {
+    display: none;
+    width: 0.7em;
+    height: 1em;
+    background-color: $fbred;
+    opacity: 1;
+    position: relative;
+    top: 2px;
+    left: 2px;
+    -webkit-animation: spin 1s linear alternate infinite;
+    -moz-animation: spin 1s linear alternate infinite;
+    animation: spin 1s linear alternate infinite;
+}
+
+@keyframes spin {
+    0%, 14% {
+        opacity: 1;
+    }
+    15%, 100% {
+        opacity: 0;
+    }
+}
+
+// specific content
+//
+//
+.hide-file {
+    position: absolute;
+    z-index: 1000;
+    opacity: 0;
+    cursor: pointer;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.status-container {
+    margin: 20px 0 0 0;
+}
+
+#map {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #000;
+    z-index: 1000;
+    transition: all 0.3s ease 0s;
+}
+
+.faded {
+    opacity: 0.5;
+}
+
+#processingbar {
+    max-width: 90vw;
+}
+
+#title {
+    position: absolute;
+    z-index: 2000;
+    left: 0px;
+    top: 50px;
+    background-color: rgba(0, 0, 0, 0);
+    padding: 20px 20px 20px;
+    p {
+        font-size: $fsize;
+        margin: 0;
+        padding: 0;
+        color: #FFF;
+        span {
+            color: $fb;
+        }
+    }
+    li {
+        color: $grey;
+        padding: 0 20px;
+        &.active p {
+            color: $fb;
+        }
+        &.activeCursor {
+            color: #FFF;
+            cursor: pointer;
+        }
+    }
+}
+
+// activity vis
+//
+//
+#vis {
+    width: 100%;
+    position: relative;
+    height: 80vh;
+    .box {
+        background-color: $fba;
+        width: 0px;
+        height: 0px;
+        position: absolute;
+        // border-radius: 50%;
+        margin: 50px 0 0 0;
+        top: 0;
+        left: 0;
+        display: none;
+    }
+}
+
+#datapoints {}
+
+#xaxis {
+    position: fixed;
+    bottom: 20px;
+    display: flex;
+    width: calc(100% - 40px);
+    justify-content: space-between;
+    border-top: 1px solid #FFF;
+    div {
+        font-size: 0.8em;
+        position: relative;
+        width: calc(100%/25);
+        text-align: center;
+    }
+    div:after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: -5px;
+        height: 5px;
+        width: 1px;
+        background-color: #FFF;
+    }
+}
+
+#wrlogo {
+    margin: 20px 0;
+    width: 50%;
+    max-width: 200px;
+    display: block;
+}

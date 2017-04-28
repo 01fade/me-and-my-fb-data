@@ -1,0 +1,279 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto+Mono:400);
+html {
+  box-sizing: border-box; }
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit; }
+
+body {
+  margin: 0;
+  padding: 0;
+  line-height: 1.5em;
+  font-size: 15px;
+  letter-spacing: 0.08em;
+  background-color: #000;
+  color: #FFF; }
+
+body, button {
+  font-family: "Roboto Mono", monospace;
+  font-weight: 400; }
+
+a,
+p,
+li {
+  text-transform: lowercase; }
+
+input,
+select,
+select,
+textarea {
+  font-size: 15px; }
+
+input:focus,
+button:focus {
+  outline: none; }
+
+p {
+  margin: 0 0 10px;
+  max-width: 70vw; }
+
+i {
+  text-decoration: none;
+  border-bottom: 2px solid #5C90FF; }
+
+a {
+  color: #FFF;
+  text-decoration: none;
+  padding: 0 1px; }
+
+p a {
+  background-color: #4272FF;
+  line-height: 1.1em; }
+
+p a:hover {
+  color: #4272FF;
+  background-color: #4272FF; }
+
+ul {
+  list-style: none;
+  padding: 0; }
+
+.warning {
+  color: #fa3c4c; }
+
+button,
+.input-container {
+  padding: 10px 20px;
+  margin: 5px;
+  line-height: normal;
+  min-height: 42px;
+  font-size: 15px;
+  position: relative;
+  background-color: transparent;
+  display: inline-block; }
+
+button.big-btn,
+.input-container.big-btn {
+  padding: 15px 40px; }
+
+button.btn-active,
+.input-container.btn-active {
+  border: 2px solid #5C90FF;
+  color: #FFF;
+  cursor: pointer; }
+
+button.btn-action,
+.input-container.btn-action {
+  border: 2px solid #ffc300;
+  color: #FFF;
+  cursor: pointer; }
+
+button.btn-inactive,
+.input-container.btn-inactive {
+  border: 2px solid #999;
+  color: #999; }
+
+.content {
+  padding: 20px; }
+
+#restart-btn {
+  font-size: 0.8em;
+  position: fixed;
+  padding: 5px 10px;
+  min-height: 20px;
+  right: 5px;
+  top: 5px;
+  z-index: 2000; }
+
+.Nav {
+  height: 50px; }
+
+.nav-list {
+  z-index: 9000;
+  position: relative;
+  float: left;
+  display: inline;
+  padding: 0;
+  margin: 10px 20px; }
+
+.nav-list li {
+  font-size: 15px;
+  float: left;
+  margin: 0 1em;
+  display: inline-block;
+  position: relative; }
+
+.nav-list li a,
+.nav-list li a:active {
+  padding: 0px 0px;
+  position: relative;
+  display: inline-block; }
+
+.nav-list li a:after {
+  background-color: none; }
+
+.nav-list li .activeNav:after,
+.nav-list li a:hover:after,
+.nav-list li a:after {
+  width: 0.8em;
+  height: 0.8em;
+  top: 0.3em;
+  left: -1.1em;
+  content: '';
+  border: 2px solid #5C90FF;
+  transition: all 0.3s ease 0s;
+  position: absolute; }
+
+.nav-list li .activeNav:after,
+.nav-list li a:hover:after {
+  background-color: #5C90FF; }
+
+#progressbar {
+  height: 4px;
+  width: 0%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.2); }
+
+.loader {
+  display: none;
+  width: 0.7em;
+  height: 1em;
+  background-color: #fa3c4c;
+  opacity: 1;
+  position: relative;
+  top: 2px;
+  left: 2px;
+  -webkit-animation: spin 1s linear alternate infinite;
+  -moz-animation: spin 1s linear alternate infinite;
+  animation: spin 1s linear alternate infinite; }
+
+@keyframes spin {
+  0%, 14% {
+    opacity: 1; }
+  15%, 100% {
+    opacity: 0; } }
+
+.hide-file {
+  position: absolute;
+  z-index: 1000;
+  opacity: 0;
+  cursor: pointer;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%; }
+
+.status-container {
+  margin: 20px 0 0 0; }
+
+#map {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: #000;
+  z-index: 1000;
+  transition: all 0.3s ease 0s; }
+
+.faded {
+  opacity: 0.5; }
+
+#processingbar {
+  max-width: 90vw; }
+
+#title {
+  position: absolute;
+  z-index: 2000;
+  left: 0px;
+  top: 50px;
+  background-color: transparent;
+  padding: 20px 20px 20px; }
+
+#title p {
+  font-size: 15px;
+  margin: 0;
+  padding: 0;
+  color: #FFF; }
+
+#title p span {
+  color: #5C90FF; }
+
+#title li {
+  color: #BBB;
+  padding: 0 20px; }
+
+#title li.active p {
+  color: #5C90FF; }
+
+#title li.activeCursor {
+  color: #FFF;
+  cursor: pointer; }
+
+#vis {
+  width: 100%;
+  position: relative;
+  height: 80vh; }
+
+#vis .box {
+  background-color: rgba(92, 144, 255, 0.3);
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  margin: 50px 0 0 0;
+  top: 0;
+  left: 0;
+  display: none; }
+
+#xaxis {
+  position: fixed;
+  bottom: 20px;
+  display: flex;
+  width: calc(100% - 40px);
+  justify-content: space-between;
+  border-top: 1px solid #FFF; }
+
+#xaxis div {
+  font-size: 0.8em;
+  position: relative;
+  width: calc(100%/25);
+  text-align: center; }
+
+#xaxis div:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -5px;
+  height: 5px;
+  width: 1px;
+  background-color: #FFF; }
+
+#wrlogo {
+  margin: 20px 0;
+  width: 50%;
+  max-width: 200px;
+  display: block; }
