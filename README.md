@@ -10,4 +10,10 @@ This is an ongoing project. Check back for possibly more analysis and visualizat
 
 [freegeoip](https://github.com/fiorix/freegeoip)
 
+[leaflet](https://github.com/Leaflet/Leaflet)
+
+[GreenSock](https://github.com/greensock/GreenSock-JS)
+
+[linkifyjs](https://github.com/SoapBox/linkifyjs/)
+
 [Create React App](https://github.com/facebookincubator/create-react-app)
