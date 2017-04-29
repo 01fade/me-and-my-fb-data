@@ -16,7 +16,8 @@ body {
   background-color: #000;
   color: #FFF; }
 
-body, button {
+body,
+button {
   font-family: "Roboto Mono", monospace;
   font-weight: 400; }
 
@@ -172,9 +173,11 @@ button.btn-inactive,
   animation: spin 1s linear alternate infinite; }
 
 @keyframes spin {
-  0%, 14% {
+  0%,
+  14% {
     opacity: 1; }
-  15%, 100% {
+  15%,
+  100% {
     opacity: 0; } }
 
 .hide-file {
@@ -235,27 +238,66 @@ button.btn-inactive,
   cursor: pointer; }
 
 #vis {
-  width: 100%;
+  width: calc(100% - 120px);
+  margin: 40px 0 0 120px;
   position: relative;
   height: 80vh; }
 
-#vis .box {
+#legend {
+  height: 40px;
+  padding: 0 0 20px 0; }
+
+#legend1 {
+  text-align: left;
+  padding: 0 5px; }
+
+#legend0 {
+  text-align: right;
+  padding: 0 5px; }
+
+.legend,
+.gradient {
+  display: inline-block;
+  font-size: 0.8em; }
+
+.gradient {
+  width: 180px;
+  height: 0.9em;
+  background: linear-gradient(90deg, rgba(92, 144, 255, 0), #4272FF); }
+
+#grid {
+  display: flex;
+  margin: 20px 0 0 120px;
+  justify-content: space-between;
+  flex-wrap: wrap; }
+
+#grid div {
+  position: relative;
+  width: calc(100%/24);
+  height: 40px;
+  border: 1px solid transparent;
   background-color: rgba(92, 144, 255, 0.3);
-  width: 0px;
-  height: 0px;
+  text-align: center; }
+
+#labels {
+  font-size: 0.8em;
   position: absolute;
-  margin: 50px 0 0 0;
-  top: 0;
-  left: 0;
-  display: none; }
+  top: 80px; }
+
+#labels div {
+  height: 40px; }
 
 #xaxis {
-  position: fixed;
-  bottom: 20px;
+  margin: 10px 0 0 0;
   display: flex;
-  width: calc(100% - 40px);
   justify-content: space-between;
   border-top: 1px solid #FFF; }
+
+#xaxis :first-child {
+  width: 120px; }
+
+#xaxis :first-child:after {
+  background-color: transparent; }
 
 #xaxis div {
   font-size: 0.8em;
@@ -272,8 +314,50 @@ button.btn-inactive,
   width: 1px;
   background-color: #FFF; }
 
+.explanation {
+  margin: 20px 0 0 0;
+  font-size: 0.8em; }
+
 #wrlogo {
   margin: 20px 0;
   width: 50%;
   max-width: 200px;
-  display: block; }
+  display: inline-block; }
+
+#links {
+  margin: 40px 0 0 0; }
+
+#links .host {
+  display: none; }
+
+#links a {
+  color: #ffc300;
+  background-color: #000; }
+
+#links a:hover {
+  background-color: #ffc300; }
+
+#links ul {
+  margin: 0 0 0 40px;
+  font-size: 0.8em;
+  display: none; }
+
+#links .bar {
+  width: 0px;
+  margin: 0 20px 0 0;
+  height: 0.8em;
+  display: inline-block;
+  background-color: #4272FF; }
+
+#links .linkNum {
+  color: #4272FF;
+  opacity: 0;
+  margin: 0 20px 0 0;
+  width: 0px;
+  height: 0.8em;
+  display: inline-block; }
+
+#links .plus {
+  opacity: 0;
+  color: #888;
+  cursor: pointer; }

@@ -5,6 +5,7 @@ class Xaxis extends Component {
     render() {
         return (
           <div id="xaxis">
+            <div></div>
             <div>0</div>
             <div>1</div>
             <div>2</div>

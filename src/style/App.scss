@@ -1,8 +1,8 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto+Mono:400);
-
 $fb: #5C90FF;
 $fba: rgba(92, 144, 255, 0.3);
 $blue: #4272FF;
+$bluea: rgba(66, 114, 255, 0.3);
 $fbyellow: #ffc300;
 $fbred: #fa3c4c;
 $fbteal: #44bec7;
@@ -33,7 +33,8 @@ body {
     color: #FFF;
 }
 
-body, button {
+body,
+button {
     font-family: "Roboto Mono", monospace;
     font-weight: 400;
 }
@@ -206,10 +207,12 @@ button,
 }
 
 @keyframes spin {
-    0%, 14% {
+    0%,
+    14% {
         opacity: 1;
     }
-    15%, 100% {
+    15%,
+    100% {
         opacity: 0;
     }
 }
@@ -284,31 +287,76 @@ button,
 //
 //
 #vis {
-    width: 100%;
+    width: calc(100% - 120px);
+    margin: 40px 0 0 120px;
     position: relative;
     height: 80vh;
-    .box {
-        background-color: $fba;
-        width: 0px;
-        height: 0px;
-        position: absolute;
-        // border-radius: 50%;
-        margin: 50px 0 0 0;
-        top: 0;
-        left: 0;
-        display: none;
-    }
+}
+
+#legend {
+    height: 40px;
+    padding: 0 0 20px 0;
+}
+
+#legend1 {
+    text-align: left;
+    padding: 0 5px;
+}
+
+#legend0 {
+    text-align: right;
+    padding: 0 5px;
+}
+
+.legend,
+.gradient {
+    display: inline-block;
+    font-size: 0.8em;
+}
+
+.gradient {
+    width: 180px;
+    height: 0.9em;
+    background: linear-gradient(90deg, rgba(92, 144, 255, 0), $blue);
 }
 
 #datapoints {}
 
-#xaxis {
-    position: fixed;
-    bottom: 20px;
+#grid {
     display: flex;
-    width: calc(100% - 40px);
+    margin: 20px 0 0 120px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    div {
+        position: relative;
+        width: calc(100%/24);
+        height: 40px;
+        border: 1px solid transparent;
+        background-color: $fba;
+        text-align: center;
+    }
+}
+
+#labels {
+    font-size: 0.8em;
+    position: absolute;
+    top: 80px;
+    div {
+        height: 40px;
+    }
+}
+
+#xaxis {
+    margin: 10px 0 0 0;
+    display: flex;
     justify-content: space-between;
     border-top: 1px solid #FFF;
+    :first-child {
+        width: 120px;
+    }
+    :first-child:after {
+        background-color: transparent;
+    }
     div {
         font-size: 0.8em;
         position: relative;
@@ -326,9 +374,56 @@ button,
     }
 }
 
+.explanation {
+    margin: 20px 0 0 0;
+    font-size: 0.8em;
+}
+
 #wrlogo {
     margin: 20px 0;
     width: 50%;
     max-width: 200px;
-    display: block;
+    display: inline-block;
+}
+
+// messages
+//
+//
+#links {
+    margin: 40px 0 0 0;
+    .host {
+        display: none;
+    }
+    a {
+        color: $fbyellow;
+        background-color: #000;
+    }
+    a:hover {
+        background-color: $fbyellow;
+    }
+    ul {
+        margin: 0 0 0 40px;
+        font-size: 0.8em;
+        display: none;
+    }
+    .bar {
+        width: 0px;
+        margin: 0 20px 0 0;
+        height: 0.8em;
+        display: inline-block;
+        background-color: $blue;
+    }
+    .linkNum {
+        color: $blue;
+        opacity: 0;
+        margin: 0 20px 0 0;
+        width: 0px;
+        height: 0.8em;
+        display: inline-block;
+    }
+    .plus {
+        opacity: 0;
+        color: #888;
+        cursor: pointer;
+    }
 }

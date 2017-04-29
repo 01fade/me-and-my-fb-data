@@ -142,8 +142,8 @@ class App extends Component {
               <li><NavLink activeClassName="activeNav" to="/about">about</NavLink></li>
               {!this.state.dataReady && <li><NavLink activeClassName="activeNav" exact to="/">start</NavLink></li>}
               {this.state.security && this.state.dataReady && <li><NavLink activeClassName="activeNav" to="/security">security</NavLink></li>}
-              {/*this.state.messages && this.state.dataReady && <li><NavLink activeClassName="activeNav" to="/activity">activity</NavLink></li>}
-              {this.state.messages && this.state.dataReady && <li><NavLink activeClassName="activeNav" to="/messages">messages</NavLink></li>*/}
+              {this.state.messages && this.state.dataReady && <li><NavLink activeClassName="activeNav" to="/activity">message activity</NavLink></li>}
+              {this.state.messages && this.state.dataReady && <li><NavLink activeClassName="activeNav" to="/messages">message content</NavLink></li>}
             </ul>
           </div>
 
@@ -155,7 +155,7 @@ class App extends Component {
                 <LandingInstructions />
                 <div className={this.state.chosenFiles ? "input-container btn-inactive big-btn" : "input-container btn-active big-btn"}>
                     choose files
-                    <input type="file" id="fileInput" className="hide-file" multiple  accept=".htm,.html" onChange={this.loadFiles.bind(this)} />
+                    <input type="file" id="fileInput" className="hide-file" multiple  accept=".htm,.html" onChange={this.chooseFiles.bind(this)} />
                 </div>
                 <button id="submit" className={this.state.chosenFiles ? "btn-action big-btn" : "btn-inactive big-btn"} onClick={this.loadFiles.bind(this)}>get analysis</button>
                 <div className="status-container"><p><span id="status"></span><span className="loader"></span></p></div>
@@ -166,10 +166,10 @@ class App extends Component {
                 <Start data={this.state} username={this.state.username}/>}/>
             <Route path="/security" render={()=>
                 <Security data={this.state.security} username={this.state.username}/>}/>
-            {/* <Route path="/activity" render={()=>
+            <Route path="/activity" render={()=>
                 <Activity data={this.state.messagesTimes} username={this.state.username}/>}/>
             <Route path="/messages" render={()=>
-                <Messages data={this.state.messagesContent} username={this.state.username}/>}/> */}
+                <Messages data={this.state.messagesContent} username={this.state.username}/>}/>
             <Route path="/404" component={NoMatch}/>
             <Route component={NoMatch} />
           </Switch>
