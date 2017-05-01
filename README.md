@@ -2,7 +2,7 @@
 
 It's live at [myfbdata.schloss-post.com](http://myfbdata.schloss-post.com).
 
-This project was started in the web residency program [Blowing the Whistle, Questioning Evidence](http://webresidencies-solitude-zkm.com) curated by Tatiana Bazichelli with Solitude and ZKM in March 2017. Read more about it [here](https://schloss-post.com/category/me-and-my-facebook-data/)
+This project was started in the web residency program [Blowing the Whistle, Questioning Evidence](http://webresidencies-solitude-zkm.com) curated by Tatiana Bazichelli with Solitude and ZKM in March 2017. Read more about it [here](https://schloss-post.com/category/me-and-my-facebook-data/).
 
 This is an ongoing project. Check back for possibly more analysis and visualizations of your facebook data (e.g. more details on what kind of links you are sharing, what topics you talk about).
 
