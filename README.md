@@ -8,7 +8,7 @@ This is an ongoing project. Check back for possibly more analysis and visualizat
 
 ## Tech Used
 
-[freegeoip](https://github.com/fiorix/freegeoip)
+[freegeoip](https://github.com/fiorix/freegeoip) - ad blocker needs to be disabled for this to work
 
 [leaflet](https://github.com/Leaflet/Leaflet)
 

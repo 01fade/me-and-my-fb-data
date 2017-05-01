@@ -74,23 +74,27 @@ button,
   position: relative;
   background-color: transparent;
   display: inline-block; }
-  button.big-btn,
-  .input-container.big-btn {
-    padding: 15px 40px; }
-  button.btn-active,
-  .input-container.btn-active {
-    border: 2px solid #5C90FF;
-    color: #FFF;
-    cursor: pointer; }
-  button.btn-action,
-  .input-container.btn-action {
-    border: 2px solid #ffc300;
-    color: #FFF;
-    cursor: pointer; }
-  button.btn-inactive,
-  .input-container.btn-inactive {
-    border: 2px solid #999;
-    color: #999; }
+
+button.big-btn,
+.input-container.big-btn {
+  padding: 15px 40px; }
+
+button.btn-active,
+.input-container.btn-active {
+  border: 2px solid #5C90FF;
+  color: #FFF;
+  cursor: pointer; }
+
+button.btn-action,
+.input-container.btn-action {
+  border: 2px solid #ffc300;
+  color: #FFF;
+  cursor: pointer; }
+
+button.btn-inactive,
+.input-container.btn-inactive {
+  border: 2px solid #999;
+  color: #999; }
 
 .content {
   padding: 20px; }
@@ -114,33 +118,38 @@ button,
   display: inline;
   padding: 0;
   margin: 10px 20px; }
-  .nav-list li {
-    font-size: 15px;
-    float: left;
-    margin: 0 1em;
-    display: inline-block;
-    position: relative; }
-    .nav-list li a,
-    .nav-list li a:active {
-      padding: 0px 0px;
-      position: relative;
-      display: inline-block; }
-    .nav-list li a:after {
-      background-color: none; }
-    .nav-list li .activeNav:after,
-    .nav-list li a:hover:after,
-    .nav-list li a:after {
-      width: 0.8em;
-      height: 0.8em;
-      top: 0.3em;
-      left: -1.1em;
-      content: '';
-      border: 2px solid #5C90FF;
-      transition: all 0.3s ease 0s;
-      position: absolute; }
-    .nav-list li .activeNav:after,
-    .nav-list li a:hover:after {
-      background-color: #5C90FF; }
+
+.nav-list li {
+  font-size: 15px;
+  float: left;
+  margin: 0 1em;
+  display: inline-block;
+  position: relative; }
+
+.nav-list li a,
+.nav-list li a:active {
+  padding: 0px 0px;
+  position: relative;
+  display: inline-block; }
+
+.nav-list li a:after {
+  background-color: none; }
+
+.nav-list li .activeNav:after,
+.nav-list li a:hover:after,
+.nav-list li a:after {
+  width: 0.8em;
+  height: 0.8em;
+  top: 0.3em;
+  left: -1.1em;
+  content: '';
+  border: 2px solid #5C90FF;
+  transition: all 0.3s ease 0s;
+  position: absolute; }
+
+.nav-list li .activeNav:after,
+.nav-list li a:hover:after {
+  background-color: #5C90FF; }
 
 #progressbar {
   height: 4px;
@@ -159,15 +168,13 @@ button,
   position: relative;
   top: 2px;
   left: 2px;
-  -webkit-animation: spin 1s linear alternate infinite;
-  -moz-animation: spin 1s linear alternate infinite;
   animation: spin 1s linear alternate infinite; }
 
 @keyframes spin {
   0%,
-  14% {
+  70% {
     opacity: 1; }
-  15%,
+  72%,
   100% {
     opacity: 0; } }
 
@@ -197,7 +204,7 @@ button,
 .faded {
   opacity: 0.5; }
 
-#processingbar {
+.processingbar {
   max-width: 90vw; }
 
 #title {
@@ -207,21 +214,26 @@ button,
   top: 50px;
   background-color: transparent;
   padding: 20px 20px 20px; }
-  #title p {
-    font-size: 15px;
-    margin: 0;
-    padding: 0;
-    color: #FFF; }
-    #title p span {
-      color: #5C90FF; }
-  #title li {
-    color: #BBB;
-    padding: 0 20px; }
-    #title li.active p {
-      color: #5C90FF; }
-    #title li.activeCursor {
-      color: #FFF;
-      cursor: pointer; }
+
+#title p {
+  font-size: 15px;
+  margin: 0;
+  padding: 0;
+  color: #FFF; }
+
+#title p span {
+  color: #5C90FF; }
+
+#title li {
+  color: #BBB;
+  padding: 0 20px; }
+
+#title li.active p {
+  color: #5C90FF; }
+
+#title li.activeCursor {
+  color: #FFF;
+  cursor: pointer; }
 
 #vis {
   width: calc(100% - 120px);
@@ -253,46 +265,46 @@ button,
 
 #grid {
   display: flex;
-  margin: 20px 0 0 120px;
+  margin: 20px calc(100%/25/2) 0 calc(100px + 100%/25/2);
   justify-content: space-between;
   flex-wrap: wrap; }
-  #grid div {
-    position: relative;
-    width: calc(100%/24);
-    height: 40px;
-    border: 1px solid transparent;
-    background-color: rgba(92, 144, 255, 0.3);
-    text-align: center; }
+
+#grid div {
+  position: relative;
+  width: calc(100%/24);
+  height: 40px;
+  border: 1px solid transparent;
+  background-color: rgba(92, 144, 255, 0.3);
+  text-align: center; }
 
 #labels {
   font-size: 0.8em;
   position: absolute;
   top: 80px; }
-  #labels div {
-    height: 40px; }
+
+#labels div {
+  height: 40px; }
 
 #xaxis {
-  margin: 10px 0 0 0;
+  margin: 10px 0 0 100px;
   display: flex;
   justify-content: space-between;
   border-top: 1px solid #FFF; }
-  #xaxis :first-child {
-    width: 120px; }
-  #xaxis :first-child:after {
-    background-color: transparent; }
-  #xaxis div {
-    font-size: 0.8em;
-    position: relative;
-    width: calc(100%/25);
-    text-align: center; }
-  #xaxis div:after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    top: -5px;
-    height: 5px;
-    width: 1px;
-    background-color: #FFF; }
+
+#xaxis div {
+  font-size: 0.8em;
+  position: relative;
+  width: calc(100%/25);
+  text-align: center; }
+
+#xaxis div:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -5px;
+  height: 5px;
+  width: 1px;
+  background-color: #FFF; }
 
 .explanation {
   margin: 20px 0 0 0;
@@ -306,31 +318,38 @@ button,
 
 #links {
   margin: 40px 0 0 0; }
-  #links .host {
-    display: none; }
-  #links a {
-    color: #ffc300;
-    background-color: #000; }
-  #links a:hover {
-    background-color: #ffc300; }
-  #links ul {
-    margin: 0 0 0 40px;
-    font-size: 0.8em;
-    display: none; }
-  #links .bar {
-    width: 0px;
-    margin: 0 20px 0 0;
-    height: 0.8em;
-    display: inline-block;
-    background-color: #4272FF; }
-  #links .linkNum {
-    color: #4272FF;
-    opacity: 0;
-    margin: 0 20px 0 0;
-    width: 0px;
-    height: 0.8em;
-    display: inline-block; }
-  #links .plus {
-    opacity: 0;
-    color: #888;
-    cursor: pointer; }
+
+#links .host {
+  display: none; }
+
+#links a {
+  color: #ffc300;
+  background-color: #000; }
+
+#links a:hover {
+  background-color: #ffc300; }
+
+#links ul {
+  margin: 0 0 0 40px;
+  font-size: 0.8em;
+  display: none; }
+
+#links .bar {
+  width: 0px;
+  margin: 0 20px 0 0;
+  height: 0.8em;
+  display: inline-block;
+  background-color: #4272FF; }
+
+#links .linkNum {
+  color: #4272FF;
+  opacity: 0;
+  margin: 0 20px 0 0;
+  width: 0px;
+  height: 0.8em;
+  display: inline-block; }
+
+#links .plus {
+  opacity: 0;
+  color: #888;
+  cursor: pointer; }

@@ -22,7 +22,9 @@ class Start extends Component {
           <span className="warning">You didn't upload "security.htm".</span>
         }
         </p>
-        <p>To start over click on "Restart".</p>
+        {data.security &&
+          <p>Please note that unfortunately, for the security section you have to disable any ad blocker (and restart/refresh), so that the browser can make a request to get the locations linked to the IP addresses in your data. Find out more about the tech used to do so on <a href="https://github.com/01fade/me-and-my-fb-data">my github repo</a>.</p>
+        }
       </div>
     );
   }

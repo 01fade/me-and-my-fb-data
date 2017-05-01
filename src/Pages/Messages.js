@@ -19,6 +19,7 @@ class Messages extends Component {
       console.log("Messages: ", this.props.data);
       const links = this.state.localData === "" ? this.props.data : this.state.localData;
       this.processData(links);
+      // FIX, add feature later to get image and description of link
       // this.makeReqs(links, 0);
   }
 
@@ -43,7 +44,10 @@ class Messages extends Component {
       newArray = _.reverse(newArray);
       this.setState({sortedLinks: newArray});
       console.log(newArray);
-      setTimeout(() => {this.animationTL(newArray);}, 2000);
+      setTimeout(() => {
+        $(".loader").hide();
+        this.animationTL(newArray);
+      }, 2000);
   }
 
   animationTL(currentData) {
@@ -118,8 +122,8 @@ class Messages extends Component {
       <Redirect to="/" /> :
       <div className="content">
         <div id="title">
-            <p><span>{this.props.username ? this.props.username : "facebook user"}</span></p>
-            <p id="processingbar"></p>
+            <p><span>{this.props.username ? this.props.username : "facebook user"}</span><span className="loader" style={{display: "inline-block"}}></span></p>
+            <p id="processingbar-mes" className="processingbar"></p>
         </div>
         <ul id="links">{list}</ul>
       </div>

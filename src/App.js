@@ -22,12 +22,10 @@ class App extends Component {
       };
   }
 
-  componentDidMount() {
-  }
-
   saveToLocalStorage(times, links) {
     localStorage.setItem("messagesTimes", JSON.stringify(times));
     localStorage.setItem("messagesContent", JSON.stringify(links));
+    localStorage.setItem("security", JSON.stringify(this.state.security.html));
     localStorage.setItem("username", this.state.username);
   }
 
@@ -38,11 +36,12 @@ class App extends Component {
       this.setState({messagesTimes: msgTimes});
     }
     if(msgContent) {
-      console.log("msgContent", msgContent.length);
+      console.log("messagesContent", msgContent.length);
       links = linkify.find(msgContent).filter((d)=>{return d.type === "url"; });
       this.setState({messagesContent: links});
     }
-    this.saveToLocalStorage(msgTimes, links);
+    // only for DEV
+    // this.saveToLocalStorage(msgTimes, links);
     this.setState({dataReady: true});
   }
 

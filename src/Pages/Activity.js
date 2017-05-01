@@ -91,7 +91,7 @@ class Activity extends Component {
 
   prepareForAnim(section) {
     // preparing data
-    const unit = (window.innerWidth-40-120)/24; //see css for calc
+    const unit = (window.innerWidth-40-120-100)/25; //see css for calc
     $("#labels div").css("height", unit);
     let currentData = [];
     if (section !== "all") {
@@ -157,18 +157,16 @@ class Activity extends Component {
         border: "1px solid #000"
       });
     }
-    this.tl.timeScale(3);
+    this.tl.timeScale(10);
   }
 
   changeProgressbar() {
-    $("#progressbar").css("width", this.tl.progress() * 100 + "%");
+    // $("#progressbar").css("width", this.tl.progress() * 100 + "%");
   }
 
   changeSection(e) {
     const id = $(e.target).text();
-    // this.tl.stop();
-    // this.tl.seek(0);
-    // this.tl.restart();
+    this.tl.stop();
     this.tl.clear();
     $(".gridBox").css("opacity", 0);
     this.prepareForAnim(id);
@@ -196,7 +194,7 @@ class Activity extends Component {
             <ul>
               {this.state.yearsLoaded && list }
             </ul>
-            <p id="processingbar"></p>
+            <p id="processingbar-act" className="processingbar"></p>
           </div>
           <div id="vis">
             <div id="legend">

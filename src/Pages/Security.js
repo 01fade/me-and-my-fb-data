@@ -10,7 +10,9 @@ import '../style/leaflet.css';
 class Security extends Component {
     constructor() {
         super();
+        const local = localStorage.getItem("security") !== null ? JSON.parse(localStorage.getItem("security")) : "";
         this.state = {
+            localData: local,
             section: "Active Sessions"
         };
         this.worldcenter = [20, 0];
@@ -19,6 +21,7 @@ class Security extends Component {
 
     componentDidMount() {
         if ($("#map").length !== undefined) {
+            this.html = this.state.localData === "" ? this.props.data.html : this.state.localData;
             this.startMap();
             this.upadateActiveOpt(this.state.section);
         }
@@ -26,7 +29,7 @@ class Security extends Component {
 
     componentWillUnmount() {
         $("#title li").off();
-        $("#processingbar").text("");
+        $("#processingbar-sec").text("");
         this.setState({section: ""})
     }
 
@@ -127,7 +130,7 @@ class Security extends Component {
     makeReqs(arr, index) {
         const that = this;
         const url = 'http://freegeoip.net/json/' + arr[index].ip;
-        $.getJSON(url).done(function(location, textStatus, jqXHR) {
+        $.ajax({url:url}).done(function(location, textStatus, jqXHR) {
             const t = arr[index].timestamp === undefined ? "undefined" : moment.unix(arr[index].timestamp).format("YYYY-MM-DD h:mma"),
                 name = arr[index].name === undefined ? "undefined" : arr[index].name;
             that.markers.push({
@@ -140,10 +143,10 @@ class Security extends Component {
                 lat: location.latitude,
                 long: location.longitude
             });
-            $("#processingbar").text(t + " " + location.ip + " " + arr[index].name + " " + location.country_name + " " + location.region_name + " " + location.city);
+            $("#processingbar-sec").text(t + " " + location.ip + " " + arr[index].name + " " + location.country_name + " " + location.region_name + " " + location.city);
             $("#map").addClass("faded");
             index++;
-            if (index < arr.length - 1) {
+            if (index < arr.length - 1 && that.getCurrentState() !== "") {
                 setTimeout(() => that.makeReqs(arr, index), 10);
             } else {
                 const name = that.state.section.replace(" ", "");
@@ -156,6 +159,8 @@ class Security extends Component {
             if (that.getCurrentState() === ""){
                 return;
             }
+        }).fail(function(location, textStatus, jqXHR){
+            $("#processingbar-sec").text("There has been an error in processing your IP addresses and showing your locations. Please note that you have to disable any ad blocker for this feature.");
         });
     }
 
@@ -198,7 +203,7 @@ class Security extends Component {
 
     parseActiveSessions(section) {
         $("#title li").off().removeClass("activeCursor");
-        var html = $(this.props.data.html);
+        var html = $(this.html);
         const that = this;
         html.find("h2").each(function(i) {
             var el = $(this),
@@ -215,7 +220,7 @@ class Security extends Component {
 
     resetVars(){
         $("#title li").on("click", this.changeSection.bind(this)).addClass("activeCursor");
-        $("#processingbar").text("");
+        $("#processingbar-sec").text("");
         $("#map").removeClass("faded");
         this.markers = [];
     }
@@ -236,8 +241,12 @@ class Security extends Component {
     render() {
         console.log("Security: ", this.props.data);
         console.log(this.state);
+        let redirect = false;
+        if (this.props.data === undefined && localStorage.getItem("security") === null) {
+          redirect = true;
+        }
         return (
-          this.props.data === undefined ?
+          redirect ?
           <Redirect to="/" /> :
           <div className="content">
             <div id="title">
@@ -252,9 +261,9 @@ class Security extends Component {
                     <li id="administrativerecords">
                         <p>Administrative Records</p></li>
                 </ul>
-                <p id="processingbar"></p>
+                <p id="processingbar-sec" className="processingbar"></p>
             </div>
-            <div id="map"></div>
+            <div id="map" className="faded"></div>
           </div>
         );
     }

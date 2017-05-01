@@ -201,17 +201,15 @@ button,
     position: relative;
     top: 2px;
     left: 2px;
-    -webkit-animation: spin 1s linear alternate infinite;
-    -moz-animation: spin 1s linear alternate infinite;
     animation: spin 1s linear alternate infinite;
 }
 
 @keyframes spin {
     0%,
-    14% {
+    70% {
         opacity: 1;
     }
-    15%,
+    72%,
     100% {
         opacity: 0;
     }
@@ -250,7 +248,7 @@ button,
     opacity: 0.5;
 }
 
-#processingbar {
+.processingbar {
     max-width: 90vw;
 }
 
@@ -324,7 +322,7 @@ button,
 
 #grid {
     display: flex;
-    margin: 20px 0 0 120px;
+    margin: 20px calc(100%/25/2) 0 calc(100px + 100%/25/2);
     justify-content: space-between;
     flex-wrap: wrap;
     div {
@@ -347,16 +345,10 @@ button,
 }
 
 #xaxis {
-    margin: 10px 0 0 0;
+    margin: 10px 0 0 100px;
     display: flex;
     justify-content: space-between;
     border-top: 1px solid #FFF;
-    :first-child {
-        width: 120px;
-    }
-    :first-child:after {
-        background-color: transparent;
-    }
     div {
         font-size: 0.8em;
         position: relative;
