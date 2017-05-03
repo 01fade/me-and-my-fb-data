@@ -88,7 +88,6 @@ class Messages extends Component {
   }
 
   makeReqs(href) {
-      const that = this;
       const url = 'https://api.urlmeta.org/?url=' + href;
       $.getJSON(url).done(function(data, textStatus, jqXHR) {
           console.log("data", data.meta);

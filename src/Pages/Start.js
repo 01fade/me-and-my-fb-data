@@ -9,7 +9,7 @@ class Start extends Component {
     return (
       data.filesUploaded === false ?
       <Redirect to="/" /> :
-      <div className="content">
+      <div className="content" id="start">
         <p>Let's do this, {user}!</p>
         {(data.messages || data.security) &&
           <p>Choose a <i>section from above</i> to explore your data in a different way.</p>

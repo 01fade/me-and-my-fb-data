@@ -150,7 +150,7 @@ class App extends Component {
             <Route exact path="/" render={()=>
               this.state.dataReady ?
               <Redirect to={"/start"} /> :
-              <div className="content">
+              <div className="content" id="home">
                 <LandingInstructions />
                 <div className={this.state.chosenFiles ? "input-container btn-inactive big-btn" : "input-container btn-active big-btn"}>
                     choose files

@@ -78,6 +78,12 @@ p a {
     line-height: 1.1em;
 }
 
+#about, #home, #start {
+    p {
+        line-height: 2em;
+    }
+}
+
 p a:hover {
     color: $blue;
     background-color: $blue;
@@ -371,11 +377,18 @@ button,
     font-size: 0.8em;
 }
 
-#wrlogo {
+#about .wrlogo {
     margin: 20px 0;
     width: 50%;
     max-width: 200px;
     display: inline-block;
+}
+
+#home .wrlogo {
+    width: 100px;
+    position: fixed;
+    right: 15px;
+    top: 15px;
 }
 
 // messages
