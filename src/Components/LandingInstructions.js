@@ -12,6 +12,7 @@ class LandingInstructions extends Component {
             <p>Now, go to <a href="https://facebook.com/settings" target="_blank">facebook.com/settings</a> and click on "Download a copy of your Facebook data.", below the settings. You should receive a link to download your zip file via email within a few minutes. More information <a href="https://www.facebook.com/help/131112897028467">here</a>.</p>
             <p><i>Unzip.</i></p>
             <p>Find the <i>"html" folder</i> in your download. Then upload the files <i>"security.htm"</i> and <i>"messages.htm"</i> here. They will only be processed here in your browser. This takes a minute or two, wait and don't worry if this page will become unresponsive during file upload.</p>
+            <p>You can watch a <i>demo video</i> <a href="https://vimeo.com/album/4526070/video/218504603">here</a>.</p>
             <p>Your data <i>won't be stored or sent</i> anywhere but your local browser.</p>
             <a target="_blank" href="http://webresidencies-solitude-zkm.com"><img className="wrlogo" src={WRLogo} alt="webresidency-logo"/></a>
             <br/>
